@@ -34,13 +34,13 @@ public class PointTest {
 	@Test
 	public void testClone() {
 		Point p = StaticTestFactory.makePointA();
-		
+
 		Point pClone = p.clone();
 		pClone.translate(1, 1);
-		
+
 		Assert.assertEquals("[3.0,4.0]", p.getCoordinate().toString());
 	}
-	
+
 	@Test
 	public void testEnvelope() {
 		Point p = StaticTestFactory.makePointA();

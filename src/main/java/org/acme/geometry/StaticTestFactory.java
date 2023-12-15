@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StaticTestFactory {
-
+	
 	public static Point makePoint0() {
 		return new Point(new Coordinate(0, 0));
 	}
