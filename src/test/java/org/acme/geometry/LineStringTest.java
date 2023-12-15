@@ -12,15 +12,8 @@ public class LineStringTest {
 
 	@Test
 	public void testConstructorPoint() {
-		Coordinate c1 = new Coordinate(3.0, 4.0);
-		Point p1 = new Point(c1);
-		Coordinate c2 = new Coordinate(6.0, 8.0);
-		Point p2 = new Point(c2);
-		List<Point> listPoints = new ArrayList<Point>();
-		listPoints.add(p1);
-		listPoints.add(p2);
-		LineString l = new LineString(listPoints);
-		Assert.assertTrue(l.getPointN(0).equals(p1));
+		LineString l = StaticTestFactory.makeLineStringA();
+		Assert.assertEquals("[0.0,0.0]", l.getPointN(0).getCoordinate().toString());
 		Assert.assertEquals(2, l.getNumPoints(), EPSILON);
 		Assert.assertEquals("LineString", l.getType());
 		Assert.assertFalse(l.isEmpty());
@@ -35,42 +28,24 @@ public class LineStringTest {
 
 	@Test
 	public void testTranslate() {
-		Coordinate c1 = new Coordinate(3.0, 4.0);
-		Point p1 = new Point(c1);
-		Coordinate c2 = new Coordinate(6.0, 8.0);
-		Point p2 = new Point(c2);
-		List<Point> listPoints = new ArrayList<Point>();
-		listPoints.add(p1);
-		listPoints.add(p2);
-		LineString l = new LineString(listPoints);
+		LineString l = StaticTestFactory.makeLineStringA();
 
 		l.translate(1, 1);
 
-		Assert.assertEquals(4, l.getPointN(0).getCoordinate().getX(), EPSILON);
-		Assert.assertEquals(5, l.getPointN(0).getCoordinate().getY(), EPSILON);
-		Assert.assertEquals(7, l.getPointN(1).getCoordinate().getX(), EPSILON);
-		Assert.assertEquals(9, l.getPointN(1).getCoordinate().getY(), EPSILON);
+		Assert.assertEquals("[1.0,1.0]", l.getPointN(0).getCoordinate().toString());
+		Assert.assertEquals("[4.0,5.0]", l.getPointN(1).getCoordinate().toString());
 	}
-	
+
 	@Test
 	public void testClone() {
-		Coordinate c1 = new Coordinate(3.0, 4.0);
-		Point p1 = new Point(c1);
-		Coordinate c2 = new Coordinate(6.0, 8.0);
-		Point p2 = new Point(c2);
-		List<Point> listPoints = new ArrayList<Point>();
-		listPoints.add(p1);
-		listPoints.add(p2);
-		LineString l = new LineString(listPoints);
-		
+		LineString l = StaticTestFactory.makeLineStringA();
+
 		LineString lClone = l.clone();
-		
+
 		lClone.translate(1, 1);
 
-		Assert.assertEquals(3, l.getPointN(0).getCoordinate().getX(), EPSILON);
-		Assert.assertEquals(4, l.getPointN(0).getCoordinate().getY(), EPSILON);
-		Assert.assertEquals(6, l.getPointN(1).getCoordinate().getX(), EPSILON);
-		Assert.assertEquals(8, l.getPointN(1).getCoordinate().getY(), EPSILON);
+		Assert.assertEquals("[0.0,0.0]", l.getPointN(0).getCoordinate().toString());
+		Assert.assertEquals("[3.0,4.0]", l.getPointN(1).getCoordinate().toString());
 	}
 
 }

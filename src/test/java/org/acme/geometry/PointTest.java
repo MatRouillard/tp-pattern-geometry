@@ -9,10 +9,9 @@ public class PointTest {
 
 	@Test
 	public void testConstructorCoord() {
-		Coordinate c = new Coordinate(3.0, 4.0);
-		Point p = new Point(c);
+		Point p = StaticTestFactory.makePointA();
 		Coordinate getCoord = p.getCoordinate();
-		Assert.assertTrue(getCoord.equals(c));
+		Assert.assertEquals("[3.0,4.0]", getCoord.toString());
 		Assert.assertEquals("Point", p.getType());
 		Assert.assertFalse(p.isEmpty());
 	}
@@ -20,28 +19,26 @@ public class PointTest {
 	@Test
 	public void testDefaultConstructor() {
 		Point p = new Point();
-		Coordinate getCoord = p.getCoordinate();
-		Assert.assertTrue(getCoord.isEmpty());
+		Assert.assertTrue(p.getCoordinate().isEmpty());
 		Assert.assertTrue(p.isEmpty());
 	}
 
 	@Test
 	public void testTranslate() {
-		Coordinate c = new Coordinate(3.0, 4.0);
-		Point p = new Point(c);
+		Point p = StaticTestFactory.makePointA();
+
 		p.translate(1, 1);
-		Assert.assertEquals(4, p.getCoordinate().getX(), EPSILON);
-		Assert.assertEquals(5, p.getCoordinate().getY(), EPSILON);
+		Assert.assertEquals("[4.0,5.0]", p.getCoordinate().toString());
 	}
-	
+
 	@Test
 	public void testClone() {
-		Coordinate c = new Coordinate(3.0, 4.0);
-		Point p = new Point(c);
+		Point p = StaticTestFactory.makePointA();
+		
 		Point pClone = p.clone();
 		pClone.translate(1, 1);
-		Assert.assertEquals(3, p.getCoordinate().getX(), EPSILON);
-		Assert.assertEquals(4, p.getCoordinate().getY(), EPSILON);
+		
+		Assert.assertEquals("[3.0,4.0]", p.getCoordinate().toString());
 	}
 
 }
