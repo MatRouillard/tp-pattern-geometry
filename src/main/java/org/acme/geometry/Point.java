@@ -39,4 +39,8 @@ public class Point implements Geometry {
 	public Envelope getEnvelope() {
 		return new Envelope(coordinate, coordinate);
 	}
+
+	public void accept(GeometryVisitor visitor) {
+		visitor.visit(this);
+	}
 }
