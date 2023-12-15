@@ -37,9 +37,7 @@ public class Point implements Geometry {
 	}
 
 	public Point clone() {
-		Coordinate cloneCoord = new Coordinate(this.coordinate.getX(), this.coordinate.getY());
-
-		return new Point(cloneCoord);
+		return new Point(coordinate);
 	}
 
 }
