@@ -16,14 +16,17 @@ public class Coordinate {
 	public Coordinate(double x, double y) {
 		this.x = x;
 		this.y = y;
-//		this.ensureIsValid();
+		this.ensureIsValid();
 	}
 
-//	private void ensureIsValid() {
-//		if (Double.isNaN(x) || Double.isNaN(y)) {
-//			throw new Exception();
-//		}
-//	}
+	/**
+	 * Bloque la création de coordonnées avec une seule valeur NaN pour x ou y
+	 */
+	private void ensureIsValid() {
+		if (Double.isNaN(x) || Double.isNaN(y)) {
+			throw new IllegalArgumentException("Invalid Coordinate: " + this.toString());
+		}
+	}
 
 	public double getX() {
 		return x;

@@ -29,11 +29,7 @@ public class Point implements Geometry {
 	}
 
 	public void translate(double dx, double dy) {
-		double xTranslate = this.coordinate.getX() + dx;
-		double yTranslate = this.coordinate.getY() + dy;
-
-		Coordinate newCoord = new Coordinate(xTranslate, yTranslate);
-		this.coordinate = newCoord;
+		this.coordinate = new Coordinate(this.coordinate.getX() + dx, this.coordinate.getY() + dy);
 	}
 
 	public Point clone() {
