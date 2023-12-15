@@ -32,7 +32,7 @@ public class LineString implements Geometry {
 	}
 
 	public boolean isEmpty() {
-		return (0 == this.getNumPoints());
+		return 0 == this.getNumPoints();
 	}
 
 	public void translate(double dx, double dy) {
@@ -41,6 +41,7 @@ public class LineString implements Geometry {
 		}
 	}
 
+	@Override
 	public LineString clone() {
 
 		List<Point> clonePoints = new ArrayList<Point>();

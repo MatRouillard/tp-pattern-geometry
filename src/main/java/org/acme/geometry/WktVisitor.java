@@ -41,7 +41,7 @@ public class WktVisitor implements GeometryVisitor {
 		double y = coord.getY();
 		buffer.append(x + " " + y);
 	}
-	
+
 	public String getResult() {
 		return buffer.toString();
 	}

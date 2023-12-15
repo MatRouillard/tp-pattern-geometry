@@ -40,6 +40,7 @@ public class Coordinate {
 		return Double.isNaN(x) || Double.isNaN(y);
 	}
 
+	@Override
 	public String toString() {
 		if (Double.isNaN(x) && Double.isNaN(y)) {
 			return "[NaN, NaN]";

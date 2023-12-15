@@ -1,12 +1,10 @@
 package org.acme.geometry;
 
-import java.util.List;
-
 public class Envelope {
 
 	private Coordinate bottomLeft;
 	private Coordinate topRight;
-	
+
 	public Envelope() {
 		this.bottomLeft = Coordinate.EMPTY;
 		this.topRight = Coordinate.EMPTY;
@@ -33,12 +31,13 @@ public class Envelope {
 		return topRight.getY();
 	}
 
+	@Override
 	public String toString() {
 		return this.getXMin() + "," + this.getYMin() + "," + this.getXMax() + "," + this.getYMax();
 	}
 
 	public boolean isEmpty() {
-		return (bottomLeft.isEmpty() && topRight.isEmpty());
+		return bottomLeft.isEmpty() && topRight.isEmpty();
 	}
 
 }

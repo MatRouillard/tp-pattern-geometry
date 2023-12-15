@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StaticTestFactory {
-	
+
+	private StaticTestFactory() {
+
+	}
+
 	public static Point makePoint0() {
 		return new Point(new Coordinate(0, 0));
 	}
@@ -15,8 +19,8 @@ public class StaticTestFactory {
 
 	public static LineString makeLineStringA() {
 		List<Point> listPoints = new ArrayList<Point>();
-		listPoints.add(StaticTestFactory.makePoint0());
-		listPoints.add(StaticTestFactory.makePointA());
+		listPoints.add(makePoint0());
+		listPoints.add(makePointA());
 		return new LineString(listPoints);
 	}
 
