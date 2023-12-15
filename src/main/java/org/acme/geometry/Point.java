@@ -5,19 +5,36 @@ public class Point implements Geometry {
 	private Coordinate coordinate;
 
 	public Point() {
-		coordinate = new Coordinate();
+		this(null);
 	}
 
 	public Point(Coordinate coordinate) {
-		this.coordinate = coordinate;
+		if (coordinate == null) {
+			this.coordinate = Coordinate.EMPTY;
+		}
+		else {
+			this.coordinate = coordinate;
+		}
 	}
 	
 	public Coordinate getCoordinate() {
-		return coordinate;
+		return this.coordinate;
 	}
 
 	public String getType() {
 		return "Point";
+	}
+
+	public boolean isEmpty() {
+		return this.coordinate.isEmpty();
+	}
+
+	public void translate(double dx, double dy) {
+		double xTranslate = this.coordinate.getX() + dx;
+		double yTranslate = this.coordinate.getY() + dy;
+		
+		Coordinate newCoord = new Coordinate(xTranslate, yTranslate);
+		this.coordinate = newCoord;
 	}
 
 }
