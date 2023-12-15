@@ -3,7 +3,7 @@ package org.acme.geometry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaticTestFactory {
+public final class StaticTestFactory {
 
 	private StaticTestFactory() {
 

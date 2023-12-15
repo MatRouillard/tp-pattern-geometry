@@ -52,4 +52,18 @@ public class LineStringTest {
 		Assert.assertEquals("0.0,0.0,3.0,4.0", l.getEnvelope().toString());
 	}
 
+	@Test
+	public void testAsText() {
+		LineString l = StaticTestFactory.makeLineStringA();
+
+		Assert.assertEquals("LINESTRING(0.0 0.0,3.0 4.0)", l.asText());
+	}
+
+	@Test
+	public void testAsTextEmpty() {
+		LineString l = new LineString();
+
+		Assert.assertEquals("LINESTRING EMPTY", l.asText());
+	}
+
 }

@@ -48,4 +48,18 @@ public class PointTest {
 		Assert.assertEquals("3.0,4.0,3.0,4.0", p.getEnvelope().toString());
 	}
 
+	@Test
+	public void testAsText() {
+		Geometry p = StaticTestFactory.makePointA();
+
+		Assert.assertEquals("POINT(3.0 4.0)", p.asText());
+	}
+
+	@Test
+	public void testAsTextEmpty() {
+		Geometry p = new Point();
+
+		Assert.assertEquals("POINT EMPTY", p.asText());
+	}
+
 }

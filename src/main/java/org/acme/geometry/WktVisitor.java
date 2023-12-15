@@ -28,11 +28,12 @@ public class WktVisitor implements GeometryVisitor {
 			return;
 		}
 		buffer.append("(");
-		for (int i = 0; i < lineString.getNumPoints() - 1; i++) {
+		for (int i = 0; i < lineString.getNumPoints(); i++) {
+			if (i != 0) {
+				buffer.append(",");
+			}
 			writeCoordinate(lineString.getPointN(i).getCoordinate(), buffer);
-			buffer.append(",");
 		}
-		writeCoordinate(lineString.getPointN(lineString.getNumPoints() - 1).getCoordinate(), buffer);
 		buffer.append(")");
 	}
 
