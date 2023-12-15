@@ -48,4 +48,11 @@ public class LineStringTest {
 		Assert.assertEquals("[3.0,4.0]", l.getPointN(1).getCoordinate().toString());
 	}
 
+	@Test
+	public void testEnvelope() {
+		LineString l = StaticTestFactory.makeLineStringA();
+
+		Assert.assertEquals("0.0,0.0,3.0,4.0", l.getEnvelope().toString());
+	}
+
 }

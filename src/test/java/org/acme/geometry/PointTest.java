@@ -40,5 +40,12 @@ public class PointTest {
 		
 		Assert.assertEquals("[3.0,4.0]", p.getCoordinate().toString());
 	}
+	
+	@Test
+	public void testEnvelope() {
+		Point p = StaticTestFactory.makePointA();
+
+		Assert.assertEquals("3.0,4.0,3.0,4.0", p.getEnvelope().toString());
+	}
 
 }

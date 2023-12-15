@@ -36,4 +36,8 @@ public class Point implements Geometry {
 		return new Point(coordinate);
 	}
 
+	public Envelope getEnvelope() {
+		return new Envelope(coordinate, coordinate);
+	}
+
 }
