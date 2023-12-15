@@ -24,14 +24,24 @@ public class PointTest {
 		Assert.assertTrue(getCoord.isEmpty());
 		Assert.assertTrue(p.isEmpty());
 	}
-	
+
 	@Test
 	public void testTranslate() {
 		Coordinate c = new Coordinate(3.0, 4.0);
 		Point p = new Point(c);
-		p.translate(1, 1);;
+		p.translate(1, 1);
 		Assert.assertEquals(4, p.getCoordinate().getX(), EPSILON);
 		Assert.assertEquals(5, p.getCoordinate().getY(), EPSILON);
+	}
+	
+	@Test
+	public void testClone() {
+		Coordinate c = new Coordinate(3.0, 4.0);
+		Point p = new Point(c);
+		Point pClone = p.clone();
+		pClone.translate(1, 1);
+		Assert.assertEquals(3, p.getCoordinate().getX(), EPSILON);
+		Assert.assertEquals(4, p.getCoordinate().getY(), EPSILON);
 	}
 
 }
