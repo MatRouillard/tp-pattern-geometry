@@ -3,7 +3,7 @@ package org.acme.geometry;
 public abstract class AbstractGeometry implements Geometry {
 
 	@Override
-	public abstract Geometry clone();
+	public abstract AbstractGeometry clone();
 
 	public String asText() {
 		WktVisitor wktVisitor = new WktVisitor();
